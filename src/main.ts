@@ -11,29 +11,25 @@ async function bootstrap() {
   
   app.useLogger(logger);
   
-  logger.log('Iniciando app', 'Bootstrap');
+  logger.log('Iniciando app');
   
-  // habilito CORS para que el frontend pueda conectarse
+  // cors para el frontend
   app.enableCors({
     origin: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   });
 
-  logger.log('✅ CORS enabled', 'Bootstrap');
-
-  // validacion global
+  // validacion
   app.useGlobalPipes(new ValidationPipe({
     transform: true,
     whitelist: true,
   }));
 
-  logger.log('✅ Global validation pipe configured', 'Bootstrap');
-
   const port = configService.get<number>('port') || 3001;
   await app.listen(port);
   
-  logger.log(`App corriendo en puerto ${port}`);
+  console.log(`corriendo en puerto ${port}`);
   logger.log('Endpoint: POST /chat/chatgpt');
 }
 

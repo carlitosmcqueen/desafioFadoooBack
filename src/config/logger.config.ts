@@ -16,7 +16,6 @@ export const createWinstonLogger = (): Logger => {
       format.json()
     ),
     transports: [
-      // logs en consola
       new transports.Console({
         format: format.combine(
           format.colorize(),
@@ -26,17 +25,8 @@ export const createWinstonLogger = (): Logger => {
         ),
       }),
       
-      // logs en archivos
       new transports.File({
         filename: path.join(logsDir, 'app.log'),
-        maxsize: 5242880, // 5MB
-        maxFiles: 3,
-      }),
-      
-      // errores en archivo separado
-      new transports.File({
-        filename: path.join(logsDir, 'error.log'),
-        level: 'error',
         maxsize: 5242880,
         maxFiles: 3,
       }),

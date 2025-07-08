@@ -10,24 +10,24 @@ export class CustomLoggerService implements LoggerService {
     this.logger = createWinstonLogger();
   }
 
-  log(message: string, context?: string) {
-    this.logger.info(message, { context });
+  log(message: string) {
+    this.logger.info(message);
   }
 
-  error(message: string, trace?: string, context?: string) {
-    this.logger.error(message, { trace, context });
+  error(message: string, trace?: string) {
+    this.logger.error(message, { trace });
   }
 
-  warn(message: string, context?: string) {
-    this.logger.warn(message, { context });
+  warn(message: string) {
+    this.logger.warn(message);
   }
 
-  debug(message: string, context?: string) {
-    this.logger.debug(message, { context });
+  debug(message: string) {
+    this.logger.debug(message);
   }
 
-  verbose(message: string, context?: string) {
-    this.logger.verbose(message, { context });
+  verbose(message: string) {
+    this.logger.verbose(message);
   }
 
   // metodo para logs del chat
